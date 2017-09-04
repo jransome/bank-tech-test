@@ -6,12 +6,14 @@ describe Account do
   let(:transaction_instance) { double(:transaction_instance) }
   subject(:account) { described_class.new(transaction_class) }
 
-  it 'starts with a balance of 0' do
-    expect(account.balance).to eq 0
-  end
-
   before do
     allow(account.transaction_class).to receive(:new).and_return(transaction_instance)
+  end
+
+  describe '#balance' do
+    it 'starts with a balance of 0' do
+      expect(account.balance).to eq 0
+    end
   end
 
   describe '#deposit' do
