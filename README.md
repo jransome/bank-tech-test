@@ -45,8 +45,7 @@ I then mapped a domain model to guide my architecture and ensure my solution was
 
 ```
 Account
-Deposit
-Withdrawal
+Transaction
 Statement
 ```
 Using the RSpec testing framework, I then drove the development of my solution using a TDD approach, aiming for 100% test coverage.
