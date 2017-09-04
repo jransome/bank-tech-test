@@ -9,9 +9,14 @@ describe Account do
   end
 
   describe '#deposit' do
-    it 'increases the account balance when a positive number is supplied' do
+    it 'increases the account balance by a given amount' do
       expect{ account.deposit(amount) }.to change{ account.balance }.by amount
     end
   end
 
+  describe '#withdraw' do
+    it 'decreases the account balance by a given amount' do
+      expect{ account.withdraw(amount) }.to change{ account.balance }.by (-amount)
+    end
+  end
 end
