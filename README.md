@@ -61,12 +61,8 @@ Transaction
 Using the RSpec testing framework, I then drove the development of my solution using a TDD approach, aiming for 100% test coverage.
 
 ## Installation instructions
-1. Clone this repository into a directory of your choice
-2. Change into the directory from the terminal
-3. Run Bundle
-4. Run RSpec to run the tests
 
-Example terminal input for above steps:
+Run the following commands from the terminal:
 
 ```
 $ git clone git@github.com:jransome/bank-tech-test.git
@@ -74,15 +70,15 @@ $ cd bank-tech-test
 $ bundle
 $ bundle exec rspec
 ```
-To interact with the program, start IRB or Pry and require the account.rb script. Example program interaction:
+To interact with the program, start IRB and require the account.rb script. Example program interaction:
 ```
-$ pry
-[1] pry(main)> require './lib/account'
-[2] pry(main)> my_account = Account.new
-[3] pry(main)> my_account.deposit(100)
-[4] pry(main)> my_account.withdraw(40)
-[5] pry(main)> my_account.deposit(50)
-[6] pry(main)> my_account.print_statement
+$ irb
+$ require './lib/account'
+$ my_account = Account.new
+$ my_account.deposit(100)
+$ my_account.withdraw(40)
+$ my_account.deposit(50)
+$ my_account.print_statement
 date || credit || debit || balance
 05/09/2017 || 50.00 ||  || 110.00
 05/09/2017 ||  || 40.00 || 60.00

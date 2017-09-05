@@ -1,4 +1,4 @@
-require 'transaction'
+require_relative 'transaction'
 
 class TransactionHistory
   attr_reader :transaction_class, :history
@@ -11,4 +11,5 @@ class TransactionHistory
   def save(amount, balance)
     @history << transaction_class.new(amount, balance)
   end
+
 end

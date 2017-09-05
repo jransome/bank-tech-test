@@ -2,11 +2,9 @@ require 'account'
 
 describe Account do
   let(:amount) { 400 }
-  let(:transaction_instance) { double(:transaction_instance) }
-  let(:transaction_class) { double(:transaction_class, new: transaction_instance) }
+  let(:transaction_history) { double(:transaction_history, save: nil) }
   let(:statement_printer) { double(:statement_printer) }
-  subject(:account) { described_class.new(transaction_class, statement_printer) }
-
+  subject(:account) { described_class.new(transaction_history, statement_printer) }
 
   describe '#balance' do
     it 'starts with a balance of 0' do
@@ -19,8 +17,9 @@ describe Account do
       expect{ account.deposit(amount) }.to change{ account.balance }.by amount
     end
 
-    it 'adds the transaction to the transaction history' do
-      expect{ account.deposit(amount) }.to change{ account.transaction_history.length }.by 1
+    it 'saves the transaction to the transaction history' do
+      expect(transaction_history).to receive(:save)
+      account.deposit(amount)
     end
   end
 
@@ -29,8 +28,9 @@ describe Account do
       expect{ account.withdraw(amount) }.to change{ account.balance }.by (-amount)
     end
 
-    it 'adds the transaction to the transaction history' do
-      expect{ account.withdraw(amount) }.to change{ account.transaction_history.length }.by 1
+    it 'saves the transaction to the transaction history' do
+      expect(transaction_history).to receive(:save)
+      account.withdraw(amount)
     end
   end
 
