@@ -11,13 +11,17 @@ class StatementPrinter
   private
 
   def print_row transaction
-    row = [transaction.date.strftime(DATE_FORMAT), format_amount(transaction.amount.abs), nil, format_amount(transaction.current_balance)]
+    row = [format_date(transaction.date), format_amount(transaction.amount.abs), nil, format_amount(transaction.current_balance)]
     row[1], row[2] = row[2], row[1] if transaction.amount.negative?
-    row.join(" || ") + "\n"
+    row.join("|| ").chomp(' ') + "\n"
   end
 
   def format_amount amount
-    '%.02f' % amount
+    '%.02f' % amount + ' '
+  end
+
+  def format_date date
+    date.strftime(DATE_FORMAT) + ' '
   end
 
 end

@@ -2,9 +2,9 @@ require 'statement_printer'
 
 describe StatementPrinter do
   let(:printed_statement) { "date || credit || debit || balance
-04/09/2017 ||  || 300.00 || 350.00
-01/09/2017 || 150.00 ||  || 650.00
-12/08/2017 || 500.00 ||  || 500.00" }
+04/09/2017 || || 300.00 || 350.00
+01/09/2017 || 150.00 || || 650.00
+12/08/2017 || 500.00 || || 500.00" }
   let(:transaction_1) { double(:transaction,
                                 amount: 500,
                                 current_balance: 500,
