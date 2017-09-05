@@ -4,7 +4,8 @@ describe Account do
   let(:amount) { 400 }
   let(:transaction_class) { double(:transaction_class) }
   let(:transaction_instance) { double(:transaction_instance) }
-  subject(:account) { described_class.new(transaction_class) }
+  let(:statement_printer) { double(:statement_printer) }
+  subject(:account) { described_class.new(transaction_class, statement_printer) }
 
   before do
     allow(account.transaction_class).to receive(:new).and_return(transaction_instance)
@@ -33,6 +34,13 @@ describe Account do
 
     it 'adds the transaction to the transaction history' do
       expect{ account.withdraw(amount) }.to change{ account.transaction_history.length }.by 1
+    end
+  end
+
+  describe '#print_statement' do
+    it 'calls the print method on the statement_printer object' do
+      expect(statement_printer).to receive(:print).with(an_instance_of(Array))
+      account.print_statement
     end
   end
 end

@@ -1,10 +1,12 @@
 require_relative 'transaction'
+require_relative 'statement_printer'
 
 class Account
   attr_reader :balance, :transaction_class, :transaction_history
 
-  def initialize(transaction_class = Transaction)
+  def initialize(transaction_class = Transaction, statement_printer = StatementPrinter.new)
     @balance = 0
+    @statement_printer = statement_printer
     @transaction_class = transaction_class
     @transaction_history = []
   end
@@ -17,6 +19,10 @@ class Account
   def withdraw(amount)
     @balance -= amount
     record_transaction(-amount, @balance)
+  end
+
+  def print_statement
+    @statement_printer.print(@transaction_history)
   end
 
   private
