@@ -8,15 +8,15 @@ describe StatementPrinter do
   let(:transaction_1) { double(:transaction,
                                 amount: 500,
                                 current_balance: 500,
-                                date: Time.new(2017, 8, 12)) }
+                                date: Date.new(2017, 8, 12)) }
   let(:transaction_2) { double(:transaction,
                                 amount: 150,
                                 current_balance: 650,
-                                date: Time.new(2017, 9, 01)) }
+                                date: Date.new(2017, 9, 01)) }
   let(:transaction_3) { double(:transaction,
                                 amount: -300,
                                 current_balance: 350,
-                                date: Time.new(2017, 9, 04)) }
+                                date: Date.new(2017, 9, 04)) }
   let(:transaction_history) { [transaction_1, transaction_2, transaction_3] }
   subject(:statement_printer) { described_class.new }
 
