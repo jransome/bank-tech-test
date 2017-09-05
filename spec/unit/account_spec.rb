@@ -39,7 +39,7 @@ describe Account do
 
   describe '#print_statement' do
     it 'calls the print method on the statement_printer object' do
-      expect(statement_printer).to receive(:print).with(an_instance_of(Array))
+      expect(statement_printer).to receive(:print_statement).with(an_instance_of(Array))
       account.print_statement
     end
   end

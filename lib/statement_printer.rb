@@ -2,12 +2,12 @@ class StatementPrinter
   STATEMENT_HEADER = "date || credit || debit || balance\n"
   DATE_FORMAT = "%d/%m/%Y"
 
-  def print(transaction_history)
+  def print_statement(transaction_history)
     output_string = STATEMENT_HEADER
     transaction_history.reverse.each do |transaction|
       output_string += print_row(transaction)
     end
-    return output_string.chomp
+    print output_string.chomp
   end
 
   private

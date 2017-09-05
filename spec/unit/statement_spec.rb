@@ -22,7 +22,7 @@ describe StatementPrinter do
 
   describe '#print' do
     it 'prints a statement' do
-      expect(statement_printer.print(transaction_history)).to eq printed_statement
+      expect{statement_printer.print_statement(transaction_history)}.to output(printed_statement).to_stdout
     end
   end
 end
