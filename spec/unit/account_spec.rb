@@ -2,14 +2,11 @@ require 'account'
 
 describe Account do
   let(:amount) { 400 }
-  let(:transaction_class) { double(:transaction_class) }
   let(:transaction_instance) { double(:transaction_instance) }
+  let(:transaction_class) { double(:transaction_class, new: transaction_instance) }
   let(:statement_printer) { double(:statement_printer) }
   subject(:account) { described_class.new(transaction_class, statement_printer) }
 
-  before do
-    allow(account.transaction_class).to receive(:new).and_return(transaction_instance)
-  end
 
   describe '#balance' do
     it 'starts with a balance of 0' do
@@ -39,7 +36,7 @@ describe Account do
 
   describe '#print_statement' do
     it 'calls the print method on the statement_printer object' do
-      expect(statement_printer).to receive(:print_statement).with(an_instance_of(Array))
+      expect(statement_printer).to receive(:print_statement)
       account.print_statement
     end
   end
