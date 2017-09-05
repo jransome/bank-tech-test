@@ -3,9 +3,10 @@ require_relative 'statement_printer'
 
 class Account
   attr_reader :balance, :transaction_class, :transaction_history
+  INITIAL_BALANCE = 0
 
   def initialize(transaction_class = Transaction, statement_printer = StatementPrinter.new)
-    @balance = 0
+    @balance = INITIAL_BALANCE
     @statement_printer = statement_printer
     @transaction_class = transaction_class
     @transaction_history = []

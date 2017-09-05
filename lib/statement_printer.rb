@@ -4,9 +4,7 @@ class StatementPrinter
 
   def print_statement(transaction_history)
     output_string = STATEMENT_HEADER
-    transaction_history.reverse.each do |transaction|
-      output_string += print_row(transaction)
-    end
+    transaction_history.reverse.each { |transaction| output_string += print_row(transaction) }
     print output_string.chomp
   end
 
