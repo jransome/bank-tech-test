@@ -88,3 +88,8 @@ date || credit || debit || balance
 05/09/2017 ||  || 40.00 || 60.00
 05/09/2017 || 100.00 ||  || 100.00=> nil
 ```
+## Dependencies
+
+Production code was written with Ruby 2.4.0 and has no other dependencies.
+
+Tests are dependent on RSpec. SimpleCov and RuboCop are also used to measure test coverage and to ensure my code adheres to Ruby conventions.
