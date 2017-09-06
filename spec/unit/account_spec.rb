@@ -2,7 +2,7 @@ require 'account'
 
 describe Account do
   let(:amount) { 400 }
-  let(:transaction_history) { double(:transaction_history, save: nil) }
+  let(:transaction_history) { double(:transaction_history, save: nil, history: nil) }
   let(:statement_printer) { double(:statement_printer) }
   subject(:account) { described_class.new(transaction_history, statement_printer) }
 

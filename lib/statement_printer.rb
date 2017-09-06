@@ -1,3 +1,5 @@
+require_relative 'statement_row'
+
 class StatementPrinter
   STATEMENT_HEADER = "date || credit || debit || balance\n"
   DATE_FORMAT = "%d/%m/%Y"
