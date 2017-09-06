@@ -2,7 +2,6 @@ require_relative 'statement_row'
 
 class StatementPrinter
   STATEMENT_HEADER = "date || credit || debit || balance"
-  DATE_FORMAT = "%d/%m/%Y"
 
   def print_statement(transaction_history, statement_row_class = StatementRow)
     statement_rows = transaction_history.reverse.map do |transaction|
