@@ -14,9 +14,7 @@ describe TransactionHistory do
     end
 
     it 'should store the new transaction' do
-
-      expect { transaction_history.save(amount, balance) }.to change{ transaction_history.history.length }.by 1
+      expect { transaction_history.save(amount, balance) }.to change { transaction_history.history.length }.by 1
     end
   end
-
 end

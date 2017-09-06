@@ -5,7 +5,7 @@ describe Transaction do
   let(:amount) { 50 }
   let(:current_balance) { 100 }
   let!(:transaction_date) { Date.today }
-  subject(:transaction){ described_class.new(amount, current_balance) }
+  subject(:transaction) { described_class.new(amount, current_balance) }
 
   describe '#date' do
     it 'records the date of the transaction' do

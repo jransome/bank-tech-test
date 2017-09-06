@@ -14,7 +14,7 @@ describe Account do
 
   describe '#deposit' do
     it 'increases the account balance by a given amount' do
-      expect{ account.deposit(amount) }.to change{ account.balance }.by amount
+      expect { account.deposit(amount) }.to change { account.balance }.by amount
     end
 
     it 'saves the transaction to the transaction history' do
@@ -25,7 +25,7 @@ describe Account do
 
   describe '#withdraw' do
     it 'decreases the account balance by a given amount' do
-      expect{ account.withdraw(amount) }.to change{ account.balance }.by (-amount)
+      expect { account.withdraw(amount) }.to change { account.balance }.by(-amount)
     end
 
     it 'saves the transaction to the transaction history' do
